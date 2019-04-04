@@ -1,0 +1,7 @@
+﻿Họp 4/4/2019 23:30 skype
+3 thành viên: Vân, Hưng, Khôi
+
+- Khách trọ sẽ không cần đăng ký tài khoản
+- Password chủ trọ cấp cho từng phòng
+- Khách trọ không đổi được Tên tải khoản(Tên phòng: E101), Đổi được pass, các thông tin khác...
+- Thảo luận về midmap các màn hình chính của app
