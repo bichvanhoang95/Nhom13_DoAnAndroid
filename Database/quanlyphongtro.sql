@@ -26,13 +26,13 @@ CREATE TABLE `phong` (
   `idPhong` int(11) NOT NULL AUTO_INCREMENT,
   `tenPhong` varchar(100) CHARACTER SET utf8 COLLATE utf8_general_ci DEFAULT NULL,
   `tienPhong` bigint(20) DEFAULT NULL,
-  `idKhachHang` int(11) DEFAULT NULL,
+  `idChuPhong` int(11) DEFAULT NULL,
   `noiThat` varchar(500) CHARACTER SET utf8 COLLATE utf8_general_ci DEFAULT NULL,
   `ghiChu` varchar(500) CHARACTER SET utf8 COLLATE utf8_general_ci DEFAULT NULL,
   `tinhTrang` varchar(100) CHARACTER SET utf8 COLLATE utf8_general_ci DEFAULT "Trống",
   PRIMARY KEY (`idPhong`),
-  KEY `fk_Phong_KhachHang_idx` (`idKhachHang`),
-  CONSTRAINT `fk_Phong_KhachHang` FOREIGN KEY (`idKhachHang`) REFERENCES `khachhang` (`idKhachHang`)
+  KEY `fk_Phong_KhachHang_idx` (`idChuPhong`),
+  CONSTRAINT `fk_Phong_KhachHang` FOREIGN KEY (`idChuPhong`) REFERENCES `khachhang` (`idKhachHang`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
