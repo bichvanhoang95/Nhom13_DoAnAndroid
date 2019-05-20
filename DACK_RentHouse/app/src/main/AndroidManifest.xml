@@ -10,8 +10,8 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
         <meta-data
-            android:name="com.google.android.actions"
-            android:resource="@xml/loginbutton_selector" />
+            android:name="com.google.android.actions"></meta-data>
+
 
         <activity
             android:name=".MainActivity"
