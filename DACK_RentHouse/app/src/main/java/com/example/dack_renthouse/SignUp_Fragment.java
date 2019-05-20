@@ -17,8 +17,6 @@ import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import static com.example.dack_renthouse.R;
-
 public class SignUp_Fragment extends Fragment implements OnClickListener {
     private static View view;
     private static EditText fullName, emailId, mobileNumber, location,
