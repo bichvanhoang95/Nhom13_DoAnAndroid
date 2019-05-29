@@ -12,7 +12,7 @@
     <ImageView
         android:scaleType="fitCenter"
         android:layout_marginTop = "10dp"
-        android:id="@+id/imageView"
+        android:id="@+id/imageAvata"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         tools:srcCompat="@tools:sample/avatars" />
@@ -38,7 +38,7 @@
             android:orientation="horizontal">
 
             <EditText
-                android:id="@+id/editText"
+                android:id="@+id/editName"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_weight="4"
@@ -47,7 +47,7 @@
                 android:text="Victor Tran" />
 
             <ImageView
-                android:id="@+id/imageView2"
+                android:id="@+id/imageEditName"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
@@ -58,7 +58,7 @@
             android:textColor="#000000"
             android:textSize="20dp"
             android:layout_marginTop = "10dp"
-            android:id="@+id/textView4"
+            android:id="@+id/idEmail"
             android:layout_width="match_parent"
             android:layout_height="30dp"
             android:text="Email" />
@@ -69,7 +69,7 @@
             android:orientation="horizontal">
 
             <EditText
-                android:id="@+id/editText2"
+                android:id="@+id/editEmail"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_weight="4"
@@ -78,7 +78,7 @@
                 android:text="tran123@gmail.com" />
 
             <ImageView
-                android:id="@+id/imageView3"
+                android:id="@+id/imageEditEmail"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
@@ -89,7 +89,7 @@
             android:textColor="#000000"
             android:textSize="20dp"
             android:layout_marginTop = "10dp"
-            android:id="@+id/textView5"
+            android:id="@+id/idPhone"
             android:layout_width="match_parent"
             android:layout_height="30dp"
             android:text="Phone" />
@@ -100,7 +100,7 @@
             android:orientation="horizontal">
 
             <EditText
-                android:id="@+id/editText3"
+                android:id="@+id/editPhone"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_weight="4"
@@ -109,7 +109,7 @@
                 android:text="0123456789" />
 
             <ImageView
-                android:id="@+id/imageView4"
+                android:id="@+id/imageEditPhone"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
