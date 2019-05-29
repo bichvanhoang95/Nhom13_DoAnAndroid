@@ -6,6 +6,7 @@ import android.support.v4.app.FragmentManager;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.view.View.OnClickListener;
+import android.database.sqlite.SQLiteDatabase;
 
 public class MainActivity extends AppCompatActivity {
     private static FragmentManager fragmentManager;
