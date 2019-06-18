@@ -7,40 +7,41 @@ import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.ImageButton;
 
-public class DashboardActivity extends AppCompatActivity {
+public class MyRoomActivity extends AppCompatActivity {
     ImageButton ibtnHome;
     ImageButton ibtnMyRoom;
     ImageButton ibtnPay;
     ImageButton ibtnMessage;
     ImageButton ibtnAccount;
 
-    ImageButton ibtnDBMyRoom;
-    ImageButton ibtnDBPay;
-    ImageButton ibtnDBMessage;
-    ImageButton ibtnDBAccount;
+    ImageButton ibtnRoomInfor;
+    ImageButton ibtnContract;
+    ImageButton ibtnBill;
+    ImageButton ibtnStatistical;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_dashboard);
+        setContentView(R.layout.dashboard_myroom);
 
         ibtnHome = (ImageButton) findViewById(R.id.ibtnHome);
         ibtnMyRoom = (ImageButton) findViewById(R.id.ibtnMyRoom);
         ibtnPay = (ImageButton) findViewById(R.id.ibtnPay);
         ibtnMessage = (ImageButton) findViewById(R.id.ibtnMessage);
         ibtnAccount = (ImageButton) findViewById(R.id.ibtnAccount);
-        ibtnHome.setColorFilter(Color.parseColor("#C97C18"));
+        ibtnMyRoom.setColorFilter(Color.parseColor("#C97C18"));
 
-        ibtnDBMyRoom = (ImageButton) findViewById(R.id.ibtnDBMyRoom);
-        ibtnDBPay = (ImageButton) findViewById(R.id.ibtnDBPay);
-        ibtnDBMessage = (ImageButton) findViewById(R.id.ibtnDBMessage);
-        ibtnDBAccount = (ImageButton) findViewById(R.id.ibtnDBAccount);
+        ibtnRoomInfor = (ImageButton) findViewById(R.id.ibtnRoomInfor);
+        ibtnContract = (ImageButton) findViewById(R.id.ibtnContract);
+        ibtnBill = (ImageButton) findViewById(R.id.ibtnBill);
+        ibtnStatistical = (ImageButton) findViewById(R.id.ibtnStatistical);
 
-        ibtnMyRoom.setOnClickListener(new View.OnClickListener() {
+        ibtnHome.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-            Intent MyRoomActivity = new Intent( DashboardActivity.this, MyRoomActivity.class);
-            startActivity(MyRoomActivity);
+            Intent DashboardActivity = new Intent( MyRoomActivity.this, DashboardActivity.class);
+            startActivity(DashboardActivity);
             }
         });
 
@@ -54,7 +55,7 @@ public class DashboardActivity extends AppCompatActivity {
         ibtnMessage.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent MessageActivity = new Intent( DashboardActivity.this, MessageActivity.class);
+                Intent MessageActivity = new Intent( MyRoomActivity.this, MessageActivity.class);
                 startActivity(MessageActivity);
             }
         });
@@ -66,30 +67,30 @@ public class DashboardActivity extends AppCompatActivity {
             }
         });
 
-        ibtnDBMyRoom.setOnClickListener(new View.OnClickListener() {
+        ibtnRoomInfor.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-            Intent MyRoomActivity = new Intent( DashboardActivity.this, MyRoomActivity.class);
-            startActivity(MyRoomActivity);
+                Intent RoomInforActivity = new Intent( MyRoomActivity.this, RoomInforActivity.class);
+                startActivity(RoomInforActivity);
             }
         });
 
-        ibtnDBPay.setOnClickListener(new View.OnClickListener() {
+        ibtnContract.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent ContractActivity = new Intent( MyRoomActivity.this, ContractActivity.class);
+                startActivity(ContractActivity);
+            }
+        });
+
+        ibtnBill.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
 
             }
         });
 
-        ibtnDBMessage.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent MessageActivity = new Intent( DashboardActivity.this, MessageActivity.class);
-                startActivity(MessageActivity);
-            }
-        });
-
-        ibtnDBAccount.setOnClickListener(new View.OnClickListener() {
+        ibtnStatistical.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
 
