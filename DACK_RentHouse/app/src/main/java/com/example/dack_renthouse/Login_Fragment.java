@@ -27,6 +27,18 @@ import android.widget.EditText;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
+import com.android.volley.Request;
+import com.android.volley.RequestQueue;
+import com.android.volley.Response;
+import com.android.volley.VolleyError;
+import com.android.volley.toolbox.JsonArrayRequest;
+import com.android.volley.toolbox.StringRequest;
+import com.android.volley.toolbox.Volley;
+
+import org.json.JSONArray;
+import org.json.JSONException;
+import org.json.JSONObject;
+
 public class Login_Fragment extends Fragment implements OnClickListener {
     private static View view;
 
@@ -37,6 +49,8 @@ public class Login_Fragment extends Fragment implements OnClickListener {
     private static LinearLayout loginLayout;
     private static Animation shakeAnimation;
     private static FragmentManager fragmentManager;
+
+    cPhong ttphong;
 
     public Login_Fragment() {
 
@@ -59,7 +73,7 @@ public class Login_Fragment extends Fragment implements OnClickListener {
         password = (EditText) view.findViewById(R.id.login_password);
         loginButton = (Button) view.findViewById(R.id.loginBtn);
         forgotPassword = (TextView) view.findViewById(R.id.forgot_password);
-        signUp = (TextView) view.findViewById(R.id.createAccount);
+//        signUp = (TextView) view.findViewById(R.id.createAccount);
         show_hide_password = (CheckBox) view
                 .findViewById(R.id.show_hide_password);
         loginLayout = (LinearLayout) view.findViewById(R.id.login_layout);
@@ -76,7 +90,7 @@ public class Login_Fragment extends Fragment implements OnClickListener {
 
             forgotPassword.setTextColor(csl);
             show_hide_password.setTextColor(csl);
-            signUp.setTextColor(csl);
+//            signUp.setTextColor(csl);
         } catch (Exception e) {
         }
     }
@@ -85,7 +99,7 @@ public class Login_Fragment extends Fragment implements OnClickListener {
     private void setListeners() {
         loginButton.setOnClickListener(this);
         forgotPassword.setOnClickListener(this);
-        signUp.setOnClickListener(this);
+//        signUp.setOnClickListener(this);
 
         // Set check listener over checkbox for showing and hiding password
         show_hide_password
@@ -143,15 +157,15 @@ public class Login_Fragment extends Fragment implements OnClickListener {
                                 new ForgotPassword_Fragment(),
                                 Utils.ForgotPassword_Fragment).commit();
                 break;
-            case R.id.createAccount:
-
-                // Replace signup frgament with animation
-                fragmentManager
-                        .beginTransaction()
-                        .setCustomAnimations(R.anim.right_enter, R.anim.left_out)
-                        .replace(R.id.frameContainer, new SignUp_Fragment(),
-                                Utils.SignUp_Fragment).commit();
-                break;
+//            case R.id.createAccount:
+//
+//                // Replace signup frgament with animation
+//                fragmentManager
+//                        .beginTransaction()
+//                        .setCustomAnimations(R.anim.right_enter, R.anim.left_out)
+//                        .replace(R.id.frameContainer, new SignUp_Fragment(),
+//                                Utils.SignUp_Fragment).commit();
+//                break;
         }
 
     }
@@ -162,30 +176,44 @@ public class Login_Fragment extends Fragment implements OnClickListener {
         String getEmailId = emailid.getText().toString();
         String getPassword = password.getText().toString();
 
-        // Check patter for email id
-//        Pattern p = Pattern.compile(Utils.regEx);
-//
-//        Matcher m = p.matcher(getEmailId);
-//
-//        // Check for both field is empty or not
-//        if (getEmailId.equals("") || getEmailId.length() == 0
-//                || getPassword.equals("") || getPassword.length() == 0) {
-//            loginLayout.startAnimation(shakeAnimation);
-//            new CustomToast().Show_Toast(getActivity(), view,
-//                    "Enter both credentials.");
-//
-//        }
-//        // Check if email id is valid or not
-//        else if (!m.find())
-//            new CustomToast().Show_Toast(getActivity(), view,
-//                    "Your Email Id is Invalid.");
-//            // Else do login and do your stuff
-//        else
-//            Toast.makeText(getActivity(), "Do Login.", Toast.LENGTH_SHORT)
-//                    .show();
-        if (getEmailId.equals("admin@gmail.com") && getPassword.equals("admin")) return true;
+        String myurl = String.format("http://35.237.183.31:3000/login?email=%s&password=%s",getEmailId,getPassword);
+
+        RequestQueue requestQueue = Volley.newRequestQueue(getActivity());
+        JsonArrayRequest jsonArrayRequest = new JsonArrayRequest(Request.Method.GET, myurl, null,
+                new Response.Listener<JSONArray>() {
+                    @Override
+                    public void onResponse(JSONArray response) {
+                        if (response.length()>0)
+                        {
+
+                            try {
+                                JSONObject obj = response.getJSONObject(0);
+
+                                ttphong = new cPhong(obj.getInt("idPhong"),
+                                                            obj.getString("tenPhong"),
+                                                            obj.getInt("tienPhong"),
+                                                            obj.getInt("idChuPhong"),
+                                                            obj.getString("noiThat"),
+                                                            obj.getString("ghiChu"),
+                                                            obj.getString("tinhTrang")
+                                        );
+                            } catch (JSONException e) {
+                                e.printStackTrace();
+                            }
+                        }
+
+                    }
+                }, new Response.ErrorListener() {
+                    @Override
+                    public void onErrorResponse(VolleyError error) {
+
+                    }
+                }
+        );
+        requestQueue.add(jsonArrayRequest);
+        if (ttphong!=null) return true;
         else {
-            Toast.makeText(getActivity(), "Sai tên tài khoản hoặc mật khẩu!", Toast.LENGTH_SHORT).show();
+            Toast.makeText(getActivity(), "Sai tên email hoặc mật khẩu!", Toast.LENGTH_SHORT).show();
             return false;
         }
     }
