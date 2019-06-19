@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Bảng điều khiển - IoT</title>
+    
+    <link rel="stylesheet" type="text/css" href="/css/bootstrap.min.css">
+    <!-- <link rel="stylesheet" type="text/css" href="/css/styles.css"> -->
+    
+
+    
+</head>
+
+<body style="background-color:#C9DCB3;">
+
+    <!-- <fieldset>
+        <legend>Bảng điều khiển - IoT</legend>
+        <input type="text" id="username" name="username" placeholder="Enter name">
+        <br>
+        <div id="content"></div>
+
+        <input id="message" placeholder="Write something..">
+        <br>
+        <button id="sendMessage">SEND</button>
+        <br>
+        <input type="checkbox" checked data-toggle="toggle">
+    </fieldset> -->
+    <div style="margin: 30px;">
+        <div class="row">
+            <div class="col-md-3">THIẾT BỊ</div>
+            <div class="col-md-3">CÔNG TẮC</div>
+            <div class="col-md-6">GIÁ TRỊ / TRẠNG THÁI</div>
+        </div><hr>
+        <div class="row">
+            <div class="col-md-3">Bóng đèn 1:</div>
+            <div class="col-md-3"><button id="bongden1_toggle" type="button" class="btn btn-secondary">Loading</button></div>
+            <div class="col-md-6">
+                <label for="bongden1_range">Mức</label>
+                <input type="range" class="custom-range" min="1" max="3" step="1" id="bongden1_range" disabled="">
+                <!-- <div class="alert alert-success" role="alert">Trạng thái: đèn bật!</div> -->
+            </div>
+        </div><hr>
+        <div class="row">
+            <div class="col-md-3">Chế độ tự động:</div>
+            <div class="col-md-3"><button id="pir_toggle" type="button" class="btn btn-secondary">Loading</button></div>
+            <div class="col-md-6"><div id ="pir_label" class="alert alert-light" role="alert">Pir đang bật!</div></div>
+        </div><hr>
+    </div>
+    <script type="text/javascript" src="/js/socket.io.js"></script>
+    <script type="text/javascript" src="/js/jquery-3.4.1.min.js"></script>
+    <script type="text/javascript" src="/js/iotwebserver.js"></script>
+    <script type="text/javascript" src="/js/bootstrap.min.js"></script>
+    <!-- <script type="text/javascript" src="/js/jquery.slim.min.js"></script> -->
+    <!-- <script type="text/javascript" src="dist/popper/popper.js"></script> -->
+    
+</body>
+</html>
