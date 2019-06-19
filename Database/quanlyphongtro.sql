@@ -119,7 +119,10 @@ CREATE TABLE `taikhoan` (
   `matKhau` varchar(500) CHARACTER SET utf8 COLLATE utf8_general_ci DEFAULT NULL,
   `Email` varchar(100) CHARACTER SET utf8 COLLATE utf8_general_ci DEFAULT NULL,
   `soDienThoai` varchar(100) CHARACTER SET utf8 COLLATE utf8_general_ci DEFAULT NULL,
-  PRIMARY KEY (`idTaiKhoan`)
+  `idPhong` int(11) DEFAULT NULL,
+  PRIMARY KEY (`idTaiKhoan`),
+  KEY `fk_TaiKhoan_Phong_idx` (`idPhong`),
+  CONSTRAINT `fk_TaiKhoan_Phong` FOREIGN KEY (`idPhong`) REFERENCES `phong` (`idPhong`)
 ) ENGINE=InnoDB AUTO_INCREMENT=650 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
@@ -130,6 +133,32 @@ CREATE TABLE `taikhoan` (
 LOCK TABLES `taikhoan` WRITE;
 /*!40000 ALTER TABLE `taikhoan` DISABLE KEYS */;
 /*!40000 ALTER TABLE `taikhoan` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `tinnhan`
+--
+
+DROP TABLE IF EXISTS `tinnhan`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+ SET character_set_client = utf8mb4 ;
+CREATE TABLE `tinnhan` (
+  `idTinNhan` int(11) NOT NULL AUTO_INCREMENT,
+  `idPhongGui` int(11) DEFAULT NULL,
+  `idPhongNhan` int(11) DEFAULT NULL,
+  `daDoc` boolean DEFAULT 0,
+  `noiDung` varchar(500) CHARACTER SET utf8 COLLATE utf8_general_ci DEFAULT NULL,
+  PRIMARY KEY (`idTinNhan`)
+) ENGINE=InnoDB AUTO_INCREMENT=650 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `tinnhan`
+--
+
+LOCK TABLES `tinnhan` WRITE;
+/*!40000 ALTER TABLE `tinnhan` DISABLE KEYS */;
+/*!40000 ALTER TABLE `tinnhan` ENABLE KEYS */;
 UNLOCK TABLES;
 
 --
