@@ -62,6 +62,8 @@ public class DashboardActivity extends AppCompatActivity {
         ibtnAccount.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                Intent AccountActivity = new Intent(DashboardActivity.this, AccountActivity.class);
+                startActivity(AccountActivity);
 
             }
         });
@@ -92,7 +94,8 @@ public class DashboardActivity extends AppCompatActivity {
         ibtnDBAccount.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-
+                Intent AccountActivity = new Intent(DashboardActivity.this, AccountActivity.class);
+                startActivity(AccountActivity);
             }
         });
     }

@@ -84,7 +84,8 @@ public class MessageActivity extends AppCompatActivity {
         ibtnAccount.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-
+                Intent AccountActivity = new Intent(MessageActivity.this, AccountActivity.class);
+                startActivity(AccountActivity);
             }
         });
 

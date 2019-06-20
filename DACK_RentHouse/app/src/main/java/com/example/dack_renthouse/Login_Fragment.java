@@ -44,7 +44,7 @@ public class Login_Fragment extends Fragment implements OnClickListener {
 
     private static EditText emailid, password;
     private static Button loginButton;
-    private static TextView forgotPassword, signUp;
+    private static TextView forgotPassword, signUpField;
     private static CheckBox show_hide_password;
     private static LinearLayout loginLayout;
     private static Animation shakeAnimation;
@@ -73,10 +73,13 @@ public class Login_Fragment extends Fragment implements OnClickListener {
         password = (EditText) view.findViewById(R.id.login_password);
         loginButton = (Button) view.findViewById(R.id.loginBtn);
         forgotPassword = (TextView) view.findViewById(R.id.forgot_password);
-//        signUp = (TextView) view.findViewById(R.id.createAccount);
+
         show_hide_password = (CheckBox) view
                 .findViewById(R.id.show_hide_password);
         loginLayout = (LinearLayout) view.findViewById(R.id.login_layout);
+//        signUp = (TextView) view.findViewById(R.id.createAccount);
+//      Chua do du lieu vao firebase duoc
+//        signUpField = (TextView) view.findViewById(R.id.signUpField);
 
         // Load ShakeAnimation
         shakeAnimation = AnimationUtils.loadAnimation(getActivity(),
@@ -91,7 +94,8 @@ public class Login_Fragment extends Fragment implements OnClickListener {
             forgotPassword.setTextColor(csl);
             show_hide_password.setTextColor(csl);
 //            signUp.setTextColor(csl);
-        } catch (Exception e) {
+        }
+        catch (Exception e) {
         }
     }
 
@@ -99,7 +103,7 @@ public class Login_Fragment extends Fragment implements OnClickListener {
     private void setListeners() {
         loginButton.setOnClickListener(this);
         forgotPassword.setOnClickListener(this);
-//        signUp.setOnClickListener(this);
+//        signUpField.setOnClickListener(this);
 
         // Set check listener over checkbox for showing and hiding password
         show_hide_password
@@ -157,7 +161,8 @@ public class Login_Fragment extends Fragment implements OnClickListener {
                                 new ForgotPassword_Fragment(),
                                 Utils.ForgotPassword_Fragment).commit();
                 break;
-//            case R.id.createAccount:
+//                Chua do du lieu vao firebase duoc
+//            case R.id.signUpField:
 //
 //                // Replace signup frgament with animation
 //                fragmentManager
