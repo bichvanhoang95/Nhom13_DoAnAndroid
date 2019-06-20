@@ -114,9 +114,10 @@ public class SignUp_Fragment extends Fragment implements OnClickListener {
                     "All fields are required.");
 
             // Check if email id valid or not
-        else if (!m.find())
-            new CustomToast().Show_Toast(getActivity(), view,
-                    "Your Email Id is Invalid.");
+//        else
+//            if (!m.find())
+//            new CustomToast().Show_Toast(getActivity(), view,
+//                    "Your Email Id is Invalid.");
 
             // Check if both password should be equal
         else if (!getConfirmPassword.equals(getPassword))

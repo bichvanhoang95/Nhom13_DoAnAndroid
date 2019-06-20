@@ -68,7 +68,8 @@ public class RoomInforActivity extends AppCompatActivity {
         ibtnAccount.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-
+                Intent AccountActivity = new Intent(RoomInforActivity.this, AccountActivity.class);
+                startActivity(AccountActivity);
             }
         });
     }
